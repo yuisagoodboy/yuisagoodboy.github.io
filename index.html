@@ -372,7 +372,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2019-12-17 15:10:29 / 修改时间：19:02:57" itemprop="dateCreated datePublished" datetime="2019-12-17T15:10:29+08:00">2019-12-17</time>
+              <time title="创建时间：2019-12-17 15:10:29 / 修改时间：19:06:43" itemprop="dateCreated datePublished" datetime="2019-12-17T15:10:29+08:00">2019-12-17</time>
             </span>
 
           
@@ -387,115 +387,21 @@
 
       
           <h1 id="搭建步骤"><a href="#搭建步骤" class="headerlink" title="搭建步骤"></a>搭建步骤</h1><ol>
-<li>安装Git</li>
-<li>安装Node.js</li>
-<li>安装Hexo</li>
-<li>GitHub创建个人仓库</li>
-<li>生成SSH添加到GitHub</li>
-<li>将hexo部署到GitHub</li>
-<li>设置主题</li>
-<li>发布文章</li>
-</ol>
-<p>（后面更新）</p>
-<h2 id="Next主题的分页显示问题"><a href="#Next主题的分页显示问题" class="headerlink" title="Next主题的分页显示问题"></a>Next主题的分页显示问题</h2><ul>
-<li><a href="https://img-blog.csdnimg.cn/20191201150136673.png" target="_blank" rel="noopener"><img src="https://img-blog.csdnimg.cn/20191201150136673.png" alt="问题"></a></li>
-</ul>
-<p>修改这个文件： /Blog/themes/next/layout/_partials/pagination.swig</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;%- if page.prev or page.next %&#125; &lt;nav class&#x3D;&quot;pagination&quot;&gt;   &#123;&#123;     paginator(&#123;       prev_text: &#39;&lt;i class&#x3D;&quot;fa fa-angle-left&quot; aria-label&#x3D;&quot;&#39;+__(&#39;accessibility.prev_page&#39;)+&#39;&quot;&gt;&lt;&#x2F;i&gt;&#39;,       next_text: &#39;&lt;i class&#x3D;&quot;fa fa-angle-right&quot; aria-label&#x3D;&quot;&#39;+__(&#39;accessibility.next_page&#39;)+&#39;&quot;&gt;&lt;&#x2F;i&gt;&#39;,       mid_size: 1,       escape: false     &#125;)   &#125;&#125; &lt;&#x2F;nav&gt;&#123;%- endif %&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h1><p>Git<a href="https://gitforwindows.org/" target="_blank" rel="noopener">下载地址</a></p>
-<p>安装步骤：一直next就可以了，安装好后桌面会有个Git Bash的图标，也可以在cmd中输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
-
-<p>有显示版本就表示安装成功了。</p>
-<h1 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h1><p><a href="http://nodejs.cn/download/" target="_blank" rel="noopener">下载地址</a></p>
-<p>安装步骤：反正下载好文件后，双击打开安装，也是一路next，不过在Custom Setup这一步记得选 <code>Add to PATH</code> ,这样你就不用自己去配置电脑上环境变量了，装完在按 <code>win + r</code> 快捷键调出运行，然后输入cmd确定，在cmd中输入path可以看到你的node是否配置在里面（环境变量），没有的话你就自由发挥吧，在cmd中输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
-
-<p>查看版本</p>
-<h1 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h1><p>安装步骤：</p>
-<ol>
-<li><p>先创建一个文件夹，文件夹名这里就按照Myblog来处理了</p>
+<li><p>安装Git</p>
 </li>
-<li><p>进入文件夹后，右键点击Git Bash here,进入一个类似于cmd的页面，之后都是在这里操作了，比较方便</p>
+<li><p>安装Node.js</p>
 </li>
-<li><p>设置npm的淘宝镜像，不然后面的安装和下载都很慢的，命令行里输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https:&#x2F;&#x2F;registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
-
-<p>（注意：包括所有命令都是一行一行输入的，判断命令是否执行完就看有没有新起一行让你输入新的命令，如果没有则表示还在运行中，如果要终止可以按Ctrl+C）</p>
-<p>然后输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm get registry</span><br></pre></td></tr></table></figure>
-
-<p>如果返回的是上面这个地址则表示设置成功了</p>
+<li><p>安装Hexo</p>
 </li>
-<li><p>完成步骤3后，输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-
-<p>这里完成后，建议用cmd打开进入前面创建的Myblog文件夹来进行hexo初始化</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
-
-<p>我当时也是在Git Bash里进行的，但是网太慢了 一直错误，然后换到cmd中就一下成功了</p>
-<p>成功的话就会显示下图</p>
-<p><a href="https://s2.ax1x.com/2019/12/16/Q5p4Mt.png" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/12/16/Q5p4Mt.png" alt="Q5p4Mt.png"></a></p>
-</li>
-</ol>
-<p>若显示Start blogging with hexo则表示成功了</p>
-<p>若不成功，就把文件夹里的文件都删除了，然后重新进行hexo init 直到成功，这里应该不成功的原因就是网太慢了 那也没办法了。</p>
-<ol>
-<li><p>若成功初始化后，输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate  #生成静态文件 也可以写成简写 hexo g  #后面都表示注释 不用输入 hexo server    #启动服务器 简写 hexo s</span><br></pre></td></tr></table></figure>
-
-<p>如果成功后，会让你输入localhost:4000 就可以访问到你自己的博客啦 然后在cmd中或者git bash中Ctrl+C可以停止服务器</p>
-<p><a href="https://imgchr.com/i/Q5CxET" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/12/16/Q5CxET.md.png" alt="Q5CxET.md.png"></a></p>
-<p>我这里设置了主题所以可能与刚开始初始化的不太一样，但是能够显示出来一个页面就表示成功了，如果现实404就表示这个端口被占用了，自行百度如果修改hexo端口</p>
-</li>
-</ol>
-<h1 id="GitHub创建个人仓库"><a href="#GitHub创建个人仓库" class="headerlink" title="GitHub创建个人仓库"></a>GitHub创建个人仓库</h1><p>首先，你先要有一个GitHub账户，去注册一个吧。注册完登录后，在GitHub.com中看到一个New repository，新建仓库时创建一个和你用户名相同的仓库，yourusername.github.io，只有这样，将来要部署到GitHub page的时候，才会被识别，也就是xxxx.github.io，其中xxx就是你注册GitHub的用户名。我这里是已经建过了。</p>
-<h1 id="生成SSH添加到Github"><a href="#生成SSH添加到Github" class="headerlink" title="生成SSH添加到Github"></a>生成SSH添加到Github</h1><p>在你的Git Bash中(打开桌面图标)输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;yourusername&quot;git config --global user.email &quot;youremail&quot;</span><br></pre></td></tr></table></figure>
-
-<p>这里的yourusername就是你Github的用户名 邮箱就是注册Github的邮箱</p>
-<p>然后创建ssh</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;youremail&quot;</span><br></pre></td></tr></table></figure>
-
-<p>然后连续按三个回车即可，然后依次进入C盘 用户(User) 你的电脑用户名文件夹 .ssh文件夹，可以看到两个文件</p>
-<p>ssh，简单来讲，就是一个秘钥，其中，id_rsa是你这台电脑的私人秘钥，不能给别人看的，id_rsa.pub是公共秘钥，可以随便给别人看。把这个公钥放在GitHub上，这样当你链接GitHub自己的账户时，它就会根据公钥匹配你的私钥，当能够相互匹配时，才能够顺利的通过git上传你的文件到GitHub上。</p>
-<p>而后在GitHub的setting中，找到SSH keys的设置选项，点击New SSH key<br>把你的id_rsa.pub里面的信息复制进去。</p>
-<h1 id="将Hexo部署到Github"><a href="#将Hexo部署到Github" class="headerlink" title="将Hexo部署到Github"></a>将Hexo部署到Github</h1><p>进入Myblog文件夹，打开_config.yml文件，后面统称站点配置文件，翻到最后(注意在这些配置文件中xxx: yyy的形式中，冒号后都有一个空格)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deploy:  type: git  repo: https:&#x2F;&#x2F;github.com&#x2F;YourgithubName&#x2F;YourgithubName.github.io.git  branch: master</span><br></pre></td></tr></table></figure>
-
-<p>这里的YourgithubName就改成你的Github用户名即可</p>
-<p>然后还是在Git Bash中（注意都是在Myblog中打开）输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-
-<p>然后</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo cleanhexo generatehexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>其中 <code>hexo clean</code>清除了你之前生成的东西，也可以不加。<br><code>hexo generate</code> 顾名思义，生成静态文章，可以用 <code>hexo g</code>缩写<br><code>hexo deploy</code> 部署文章，可以用<code>hexo d</code>缩写</p>
-<p>之后你每次本地更新了一些配置或者文章都进行这三步，然后使Github上也进行更新</p>
-<p>注意deploy时可能要你输入你github的username和password。</p>
-<p>输入后过一会儿就可以在<code>http://yourname.github.io</code> 这个网站看到你的博客了！！</p>
-<h1 id="设置主题"><a href="#设置主题" class="headerlink" title="设置主题"></a>设置主题</h1><p>这里不做过多介绍，我也就是弄了比较简单的<a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">NextT主题</a>,网站里有教程和一些简单的修改配置来实现一些样式，至于其他的可以自行百度学习</p>
-<p>next这个主题较为简洁，由于我也是刚刚搭建成功，所以没有进行太多的样式设置，只是一个简单两栏形式，有一个分类功能（看文档就能设置了，这里有个小坑，设置配置文件里标签分类的 这些属性，如果需要使用哪个，将#去掉并且需要将||前的那个空格删除掉 ，文档里只说了删除掉#)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#about: &#x2F;about&#x2F; || user  &#x3D;&#x3D;&gt;  about: &#x2F;about&#x2F;|| user#tags: &#x2F;tags&#x2F; || tags#categories: &#x2F;categories&#x2F; || th</span><br></pre></td></tr></table></figure>
-
-<p>这里简单介绍下怎么设置分类，在next主题的配置文件下打开分类，然后git bash中输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page categories</span><br></pre></td></tr></table></figure>
-
-<p>然后再source 目录下就会有一个categories文件夹，然后里面有个index.md文件，打开该文件在后面补上</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">type: categories  #注意冒号后都有个空格</span><br></pre></td></tr></table></figure>
-
-<p>然后在新建的文章(见下一点)中都添加一个</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">categories: &quot;分类名&quot;</span><br></pre></td></tr></table></figure>
-
-<h1 id="发布文章"><a href="#发布文章" class="headerlink" title="发布文章"></a>发布文章</h1><p>要发布一个新的文章，在Myblog下输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;文章名&quot;</span><br></pre></td></tr></table></figure>
-
-<p>然后在source文件下的_posts文件夹下就有该文章名.md的文件，然后使用markdown的编辑器来编写就可以了，如果不会可以简单学一下markdown的语法，然后推荐使用<a href="https://www.typora.io/" target="_blank" rel="noopener">typora</a>软件来编写，语法什么的网上都有，我也就是看了几个文章就能够写下这篇简单的博客了，这里写几个文章使用到的语法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1.# 一级标题## 二级标题类推2.类似前面那些命令的代码块都是使用&#96;&#96;&#96;即可3.[名称](链接) 就可以实现前面点击typora跳转到下载页面的形式4.![名称](链接) 显示图片5.**文字**  表示重点typora中都有这些功能，也可以不用这些语法来写</span><br></pre></td></tr></table></figure>
-
-<p>另外如果要部署到github上还是前面说了的那三步，然后需要注意的是这里的图片问题，可以使用图床(自行百度免费图床)，将图片上传的网上，然后使用该图片的网络路径即可，或者在github上建一个新的仓库。将图片push上去（怎么操作请自行学习git的操作），然后点击图片会有个地址，使用该地址即可。</p>
-
+<li><p>GitHub创建个人仓库</p></li></ol>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/12/17/hexo-github%E6%90%AD%E8%BD%BD%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
